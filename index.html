@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Knockout-task</title>
+    <script src="knockout-3.1.0.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="main" data-bind="visible:letterSend">
+   <h1>Легкое использование существующих электронных документов(инструкций)</h1>
+    <div class="list-of-references">
+        <p class="content-title">Список литературы:</p>
+        <ol data-bind="foreach: literature">
+            <img src="images/reader.png" alt="icon">
+            <li>
+                 <span data-bind="text: $data"></span>
+                 <input type="checkbox"  data-bind="checked: $parent.selectedLiterature, attr: { value: $data }" />
+            </li>
+            <br>
+        </ol>
+    </div>
+    <div class="letter-sending">
+        <p class="content-title">Отправка письма:</p>
+        <p>E-mail: <input type="text" data-bind="value: mail" /></p>
+        <p>Тема: <input type="text" data-bind="value: topic" /></p>
+        <p>Текст сообщения:
+            <textarea data-bind="value: message"></textarea>
+        </p>
+        <div class="selected-literature">
+            <ol data-bind="foreach: $root.selectedLiterature">
+                <li
+                <span data-bind="text: $data"></span>
+                </li>
+            </ol>
+            <br/>
+        </div>
+        <input type="submit" data-bind="click: submitInformation" value="Отправить" />
+        <p class="warning" data-bind="visible: warning">Пожалуйста, заполните все поля формы</p>
+    </div>
+</div>
+<div class="submit-information" data-bind="visible:selectedLiteratureList">
+    <p class="content-title">Отправленная информация:</p>
+    <p class="submit-info-title">E-mail:</p>
+    <p data-bind="text: mail" ></p>
+    <p class="submit-info-title">Тема:</p>
+    <p data-bind="text: topic" ></p>
+    <p class="submit-info-title">Текст сообщения:</p>
+    <p data-bind="text: message" ></p>
+    <p class="submit-info-title">Выбранная литература:</p>
+    <div data-bind="foreach: $root.selectedLiterature">
+        <span data-bind="text: $data"></span>
+        <br/>
+    </div>
+</div>
+<script type='text/javascript' src='script.js'></script>
+</body>
+</html>
