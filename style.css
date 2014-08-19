@@ -35,14 +35,25 @@ h1{
     font-size:16px;
     font-weight:bold;
 }
-.list-of-references img{
+.all-literature img{
     float:left;
     width:25px;
 }
-.list-of-references ol li{
-    margin-left:60px;
+.all-literature div{
+    margin:20px 0;
+    clear:both;
 }
-.list-of-references ol li input{
+.all-literature div p{
+    margin:5px 0 0 5px;
+    float:left;
+}
+.all-literature div p:first-of-type{
+    margin-left:10px;
+}
+.title{
+    max-width: 80%;
+}
+.all-literature div input{
     float:right;
 }
 input[type="checkbox"]{

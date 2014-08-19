@@ -11,14 +11,15 @@
    <h1>Легкое использование существующих электронных документов(инструкций)</h1>
     <div class="list-of-references">
         <p class="content-title">Список литературы:</p>
-        <ol data-bind="foreach: literature">
-            <img src="images/reader.png" alt="icon">
-            <li>
-                 <span data-bind="text: $data"></span>
-                 <input type="checkbox"  data-bind="checked: $parent.selectedLiterature, attr: { value: $data }" />
-            </li>
-            <br>
-        </ol>
+        <div data-bind="foreach: literature" class="all-literature">
+            <div>
+                <img src="images/reader.png" alt="icon">
+                <p data-bind="text: id + '.'"></p>
+                <p data-bind="text: title" class="title"></p>
+                <input type="checkbox"  data-bind="checked: $parent.selectedLiterature, attr: {value: id +'.' + ' '+ title}" />
+                <br>
+            </div>
+        </div>
     </div>
     <div class="letter-sending">
         <p class="content-title">Отправка письма:</p>
@@ -28,12 +29,10 @@
             <textarea data-bind="value: message"></textarea>
         </p>
         <div class="selected-literature">
-            <ol data-bind="foreach: $root.selectedLiterature">
-                <li
+            <div data-bind="foreach: $root.selectedLiterature">
                 <span data-bind="text: $data"></span>
-                </li>
-            </ol>
-            <br/>
+                <br/>
+            </div>
         </div>
         <input type="submit" data-bind="click: submitInformation" value="Отправить" />
         <p class="warning" data-bind="visible: warning">Пожалуйста, заполните все поля формы</p>

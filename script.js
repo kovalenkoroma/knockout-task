@@ -3,14 +3,14 @@
     this.topic=ko.observable();
     this.message=ko.observable();
     this.literature=[
-        "О компании QAP INT.",
-        "Преимущества использования инструмента для Вашего бизнеса.",
-        "Перспективы сотрудничества с QAP INT.",
-        "Описание решения для разработки HTML-5 презентаций.",
-        "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский).",
-        "Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)."
+        {id:1,title:"О компании QAP INT."},
+        {id:2,title:"Преимущества использования инструмента для Вашего бизнеса."},
+        {id:3,title:"Перспективы сотрудничества с QAP INT."},
+        {id:4,title:"Описание решения для разработки HTML-5 презентаций."},
+        {id:5,title:"Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(русский)."},
+        {id:6,title:"Описание разработанного инструмента CLM2CRM и его интеграция с salesforce.com(english)."}
     ];
-    this.selectedLiterature=ko.observableArray([]);
+    this.selectedLiterature=ko.observableArray();
     this.selectedLiteratureList=ko.observable(false);
     this.letterSend=ko.observable(true);
     this.warning=ko.observable(false);
