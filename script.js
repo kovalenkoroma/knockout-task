@@ -13,16 +13,18 @@
     this.selectedLiterature=ko.observableArray();
     this.selectedLiteratureList=ko.observable(false);
     this.letterSend=ko.observable(true);
-    this.warning=ko.observable(false);
+    this.warningMessage=ko.observable();
     this.submitInformation=function(){
-        if(!this.mail() || !this.topic()|| !this.message())
-        {
+        var r = /^\w+@\w+\.\w{2,4}$/;
+        if(!r.test(this.mail())){
+            this.warningMessage('Пожалуйста, введите корректный e-mail');
+        }
+        else if(!this.topic()|| !this.message()){
             this.selectedLiteratureList(false);
-            this.warning(true);
+            this.warningMessage('Пожалуйста, заполните все поля формы');
         }
         else{
             this.selectedLiteratureList(true);
-            this.warning(false);
             this.letterSend(false);
         }
     };

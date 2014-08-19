@@ -23,19 +23,21 @@
     </div>
     <div class="letter-sending">
         <p class="content-title">Отправка письма:</p>
-        <p>E-mail: <input type="text" data-bind="value: mail" /></p>
-        <p>Тема: <input type="text" data-bind="value: topic" /></p>
-        <p>Текст сообщения:
-            <textarea data-bind="value: message"></textarea>
-        </p>
-        <div class="selected-literature">
-            <div data-bind="foreach: $root.selectedLiterature">
-                <span data-bind="text: $data"></span>
-                <br/>
+        <form>
+            <p>E-mail: <input type="email"  name="email" data-bind="value: mail" /></p>
+            <p>Тема: <input type="text" data-bind="value: topic" /></p>
+            <p>Текст сообщения:
+                <textarea data-bind="value: message"></textarea>
+            </p>
+            <div class="selected-literature">
+                <div data-bind="foreach: $root.selectedLiterature">
+                    <span data-bind="text: $data"></span>
+                    <br/>
+                </div>
             </div>
-        </div>
-        <input type="submit" data-bind="click: submitInformation" value="Отправить" />
-        <p class="warning" data-bind="visible: warning">Пожалуйста, заполните все поля формы</p>
+            <input type="submit" data-bind="click: submitInformation" value="Отправить" />
+        </form>
+        <p class="warning" data-bind="text:warningMessage"></p>
     </div>
 </div>
 <div class="submit-information" data-bind="visible:selectedLiteratureList">
